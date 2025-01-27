@@ -32,7 +32,7 @@ Key files in the project:
 ### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/christh2/Createk_extension.git
-cd repository-name
+cd extension-anti-phishing
 ```
 
 ### Step 2: Load the Extension in Chrome
