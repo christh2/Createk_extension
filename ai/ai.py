@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 from urllib.parse import urlparse
+import joblib
 
 def extract_url_features(url):
     parsed_url = urlparse(url)
@@ -30,10 +31,4 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
-while True:
-    url = input("Entrez une URL: ")
-    if url == "exit":
-        break
-    new_url_features = extract_url_features(url)
-    prediction = model.predict(new_url_features)
-    print("Frauduleux" if prediction[0] == 1 else "Légitime")
+joblib.dump(model, 'model.pkl')
